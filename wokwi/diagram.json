@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "author": "SIO - Platforma stabilizata",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 250, "left": -9, "attrs": {} },
+    { "type": "wokwi-mpu6050", "id": "imu1", "top": 332.6, "left": 200.8, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": 202.2, "left": -210, "rotate": 180, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": 268.5, "left": 340, "attrs": { "pins": "i2c" } }
+  ],
+  "connections": [
+    [ "imu1:INT", "bb1:21t.e", "", [ "$bb" ] ],
+    [ "imu1:AD0", "bb1:22t.e", "", [ "$bb" ] ],
+    [ "imu1:XCL", "bb1:23t.e", "", [ "$bb" ] ],
+    [ "imu1:XDA", "bb1:24t.e", "", [ "$bb" ] ],
+    [ "imu1:SDA", "bb1:25t.e", "", [ "$bb" ] ],
+    [ "imu1:SCL", "bb1:26t.e", "", [ "$bb" ] ],
+    [ "imu1:GND", "bb1:27t.e", "", [ "$bb" ] ],
+    [ "imu1:VCC", "bb1:28t.e", "", [ "$bb" ] ],
+    [ "uno:5V", "bb1:tp.13", "red", [] ],
+    [ "uno:GND.2", "bb1:tn.14", "black", [] ],
+    [ "uno:A4", "bb1:25t.a", "blue", [] ],
+    [ "uno:A5", "bb1:26t.a", "green", [] ],
+    [ "bb1:27t.a", "bb1:tn.22", "black", [] ],
+    [ "bb1:28t.a", "bb1:tp.23", "red", [] ],
+    [ "lcd1:GND", "bb1:tn.25", "black", [] ],
+    [ "lcd1:VCC", "bb1:28t.b", "red", [] ],
+    [ "lcd1:SDA", "bb1:25t.c", "blue", [] ],
+    [ "lcd1:SCL", "bb1:26t.d", "green", [] ],
+    [ "servo1:V+", "bb1:tp.1", "red", [] ],
+    [ "servo1:GND", "bb1:tn.1", "black", [] ],
+    [ "servo1:PWM", "uno:9", "orange", [ "h15", "v-267.7", "h188" ] ]
+  ],
+  "dependencies": {}
+}
